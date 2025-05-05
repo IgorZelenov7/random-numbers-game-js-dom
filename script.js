@@ -21,26 +21,38 @@ document.querySelector('.check').addEventListener('click', function () {
       result = score;
       document.querySelector('.highscore').textContent = result;
     }
-  } else if (guessingNumber > secretNumber) {
+  } else if (guessingNumber !== secretNumber) {
     if (score > 1) {
       document.querySelector('.guess-message').textContent =
-        'Число слишком большое';
+        guessingNumber > secretNumber
+          ? 'Число слишком большое'
+          : 'Число слишком маленькое';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
       document.querySelector('.guess-message').textContent = 'Игра окончена.';
       document.querySelector('.score').textContent = score - 1;
     }
-  } else if (guessingNumber < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.guess-message').textContent =
-        'Число слишком маленькое';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.guess-message').textContent = 'Игра окончена.';
-      document.querySelector('.score').textContent = score - 1;
-    }
+  // } else if (guessingNumber > secretNumber) {
+  //   // if (score > 1) {
+  //   //   document.querySelector('.guess-message').textContent =
+  //   //     'Число слишком большое';
+  //   //   score--;
+  //   //   document.querySelector('.score').textContent = score;
+  //   // } else {
+  //   //   document.querySelector('.guess-message').textContent = 'Игра окончена.';
+  //   //   document.querySelector('.score').textContent = score - 1;
+  //   }
+  // } else if (guessingNumber < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.guess-message').textContent =
+  //       'Число слишком маленькое';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.guess-message').textContent = 'Игра окончена.';
+  //     document.querySelector('.score').textContent = score - 1;
+  //   }
   }
 });
 
