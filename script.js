@@ -15,17 +15,30 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guessingNumber === secretNumber) {
     document.querySelector('.guess-message').textContent = 'Вы угадали!';
     document.querySelector('.highscore').textContent = result;
+    document.querySelector('.question').style.backgroundColor = 'green';
+    document.querySelector('header').style.borderBottom = '7px solid green';
+    document.querySelector('h1').textContent = 'Победа!'
   } else if (guessingNumber > secretNumber) {
-    document.querySelector('.guess-message').textContent =
-      'Число слишком большое';
-    score--;
-    result++;
-    document.querySelector('.score').textContent = score;
+    if (score > 1) {
+      document.querySelector('.guess-message').textContent =
+        'Число слишком большое';
+      score--;
+      result++;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.guess-message').textContent = 'Игра окончена.';
+      document.querySelector('.score').textContent = score - 1;
+    }
   } else if (guessingNumber < secretNumber) {
-    document.querySelector('.guess-message').textContent =
-      'Число слишком маленькое';
-    score--;
-    result++;
-    document.querySelector('.score').textContent = score;
+    if (score > 1) {
+      document.querySelector('.guess-message').textContent =
+        'Число слишком маленькое';
+      score--;
+      result++;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.guess-message').textContent = 'Игра окончена.';
+      document.querySelector('.score').textContent = score - 1;
+    }
   }
 });
