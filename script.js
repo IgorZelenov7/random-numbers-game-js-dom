@@ -1,16 +1,12 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let result = 1;
 
 document.querySelector('.check').addEventListener('click', function () {
   const guessingNumber = Number(document.querySelector('.number-input').value);
   console.log(guessingNumber);
-
-  document.querySelector('.again').addEventListener('click', () => {
-    location.reload();
-  });
 
   if (!guessingNumber) {
     document.querySelector('.guess-message').textContent = 'Введите число!';
@@ -45,4 +41,16 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = score - 1;
     }
   }
+});
+
+document.querySelector('.again').addEventListener('click', () => {
+  document.querySelector('.question').textContent = '???';
+  document.querySelector('.question').style.backgroundColor = 'white';
+  document.querySelector('.guess-message').textContent = 'Начни угадывать!';
+  document.querySelector('.score').textContent = '20';
+  document.querySelector('.highscore').textContent = '0';
+  document.querySelector('h1').textContent = 'Угадай Число!';
+  document.querySelector('h1').style.fontSize = '3rem';
+  document.querySelector('header').style.borderBottom = '7px solid #fff';
+  document.querySelector('.number-input').value = '';
 });
