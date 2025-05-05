@@ -1,6 +1,6 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20);
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
 console.log(secretNumber);
 
 document.querySelector('.check').addEventListener('click', function () {
